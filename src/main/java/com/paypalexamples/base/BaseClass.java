@@ -22,7 +22,7 @@ public class BaseClass {
 		RestAssured.basePath="/v1";
 	
 		accessToken=	given()
-				.parameters("grant_type","client_credentials")
+				.params("grant_type","client_credentials")
 				.auth()
 				.preemptive()
 				.basic(clientId, clientSecret)
