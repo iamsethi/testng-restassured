@@ -65,7 +65,7 @@ public class AssertionsExamples {
 		.when()
 		.get("/search")
 		.then()
-		.body("items.name",hasItem("Apple iPod touch 32GB"));
+		.body("items.name",hasItem("Apple iPod touch 128GB"));
 	}
 
 	// 4) Check Multiple Names in ArrayList
@@ -78,7 +78,7 @@ public class AssertionsExamples {
 		.when()
 		.get("/search")
 		.then()
-		.body("items.name",hasItems("Apple iPod touch 32GB","Apple iPod touch 16GB"));
+		.body("items.name",hasItems("Apple iPod touch 128GB"));
 	}
 	
 	// 5) Verify the gift options for the first product (Checking Values inside Map using hasValue())
@@ -105,7 +105,7 @@ public class AssertionsExamples {
 				.when()
 				.get("/search")
 				.then()
-				.body("items.findAll{it.name=='Apple iPod touch 32GB'}", hasItems(hasEntry("name", "Apple iPod touch 32GB")));
+				.body("items.findAll{it.name=='Apple iPod touch 128GB'}", hasItems(hasEntry("name", "Apple iPod touch 128GB")));
 				
 	}
 	
@@ -120,8 +120,8 @@ public class AssertionsExamples {
 		.when()
 		.get("/search")
 		.then()
-		.body("items.findAll{it.name=='Apple iPod touch 32GB'}", hasItems(hasEntry("name", "Apple iPod touch 32GB")))
-		.body("items.name",hasItem("Apple iPod touch 32GB"))
+		.body("items.findAll{it.name=='Apple iPod touch 128GB'}", hasItems(hasEntry("name", "Apple iPod touch 128GB")))
+		.body("items.name",hasItem("Apple iPod touch 128GB"))
 		.statusCode(200);
 	}
 

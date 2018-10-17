@@ -36,7 +36,7 @@ public class RootPathExample {
 		@Test
 		public void test002() {
 			given()
-			.parameters(parameters)
+			.params(parameters)
 			.when()
 			.get("/yql")
 			.then()
