@@ -1,4 +1,4 @@
-package com.paypalexamples.paymet.pojo;
+package com.paypalexamples.payment.pojo;
 
 public class Redirect_urls {
 	

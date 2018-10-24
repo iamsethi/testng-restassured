@@ -20,7 +20,7 @@ import io.restassured.specification.ResponseSpecification;
 public class VerifyingTime {
 
 	
-	static RequestSpecBuilder builder;
+	static RequestSpecBuilder requestbuilder;
 	static RequestSpecification rspec;
 	
 	static ResponseSpecBuilder responsebuilder;
@@ -33,13 +33,13 @@ public class VerifyingTime {
 		RestAssured.baseURI = "https://query.yahooapis.com";
 		RestAssured.basePath = "/v1/public";
 		
-		builder = new RequestSpecBuilder();
+		requestbuilder = new RequestSpecBuilder();
 		
-		builder.addParam("q", "select * from yahoo.finance.xchange where pair in (\"USDTHB\", \"USDINR\",\"USDCAD\",\"USDAUD\",\"USDEUR\",\"USDBRL\")");
-		builder.addParam("format","json");
-		builder.addParam("env","store://datatables.org/alltableswithkeys");
+		requestbuilder.addParam("q", "select * from yahoo.finance.xchange where pair in (\"USDTHB\", \"USDINR\",\"USDCAD\",\"USDAUD\",\"USDEUR\",\"USDBRL\")");
+		requestbuilder.addParam("format","json");
+		requestbuilder.addParam("env","store://datatables.org/alltableswithkeys");
 		
-		rspec= builder.build();
+		rspec= requestbuilder.build();
 		
 		//Building response
 		responseHeaders.put("Content-Type","application/json;charset=utf-8");

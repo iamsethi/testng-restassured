@@ -8,16 +8,16 @@ import java.util.List;
 import org.testng.annotations.Test;
 
 import com.paypalexamples.base.BaseClass;
-import com.paypalexamples.paymet.pojo.Amount;
-import com.paypalexamples.paymet.pojo.Details;
-import com.paypalexamples.paymet.pojo.Item_List;
-import com.paypalexamples.paymet.pojo.Items;
-import com.paypalexamples.paymet.pojo.Payer;
-import com.paypalexamples.paymet.pojo.Payment_Options;
-import com.paypalexamples.paymet.pojo.PostObj;
-import com.paypalexamples.paymet.pojo.Redirect_urls;
-import com.paypalexamples.paymet.pojo.Shipping_address;
-import com.paypalexamples.paymet.pojo.Transactions;
+import com.paypalexamples.payment.pojo.Amount;
+import com.paypalexamples.payment.pojo.Details;
+import com.paypalexamples.payment.pojo.Item_List;
+import com.paypalexamples.payment.pojo.Items;
+import com.paypalexamples.payment.pojo.Payer;
+import com.paypalexamples.payment.pojo.Payment_Options;
+import com.paypalexamples.payment.pojo.PostObj;
+import com.paypalexamples.payment.pojo.Redirect_urls;
+import com.paypalexamples.payment.pojo.Shipping_address;
+import com.paypalexamples.payment.pojo.Transactions;
 
 import io.restassured.http.ContentType;
 
