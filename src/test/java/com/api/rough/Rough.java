@@ -1,5 +1,8 @@
 package com.api.rough;
 
+import static io.restassured.RestAssured.basePath;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.port;
 import static org.hamcrest.Matchers.hasItems;
 
 import java.io.PrintStream;
@@ -11,11 +14,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.specification.ProxySpecification;
+import io.restassured.specification.RequestSpecification;
 
 public class Rough {
-
+	static RequestSpecBuilder builder;
+	static RequestSpecification requestSpec;
+	
 	public static StringWriter requestWriter;
 	public static PrintStream requestCapture;
 
@@ -27,8 +35,11 @@ public class Rough {
 
 	@BeforeClass
 	public static void init() {
-		RestAssured.baseURI = "http://localhost:8085";
-		RestAssured.basePath = "/student";
+		baseURI = "http://localhost";
+		port=8080;
+		basePath = "/v1/public";
+//		rootPath="query.results.rate";
+		
 	}
 
 	@BeforeTest
@@ -36,10 +47,20 @@ public class Rough {
 		requestWriter = new StringWriter();
 		responseWriter = new StringWriter();
 		errorWriter = new StringWriter();
-
 		requestCapture = new PrintStream(new WriterOutputStream(requestWriter), true);
 		responseCapture = new PrintStream(new WriterOutputStream(responseWriter), true);
 		errorCapture = new PrintStream(new WriterOutputStream(errorWriter), true);
+		
+		
+		
+		builder = new RequestSpecBuilder();											// BUILDER
+		ProxySpecification ps = new ProxySpecification("localhost", 5555, "http");  // PROXY CLASS		
+		builder.setProxy(ps);														// BUILDER + SET PROXY
+		builder.addQueryParam("query","ipod");										// BUILDER										
+		builder.addQueryParam("apiKey", "123456");									// BUILDER
+		builder.addQueryParam("format", "json");									// BUILDER
+		builder.addHeader("Accept", "*/*");											// BUILDER
+		requestSpec = builder.build();												// BUILDER.build()
 	}
 
 	@Test
@@ -47,30 +68,44 @@ public class Rough {
 		
 		RestAssured
 		.given()
-		.filter(new RequestLoggingFilter(requestCapture))
+//		.contentType(ContentType.JSON)	
+//		.contentType("text/xml")		
+		.filter(new RequestLoggingFilter(requestCapture))       //RLF RC  PS WOS
 		.filter(new ResponseLoggingFilter(responseCapture))
-//		.multiPart("source_file",inputFile)   //FILE UPLOAD
-//		.multiPart("target_format","png")	  //FILE UPLOAD	
+//		.multiPart("source_file",inputFile)   					//FILE UPLOAD
+//		.multiPart("target_format","png")	  					//FILE UPLOAD	
 //		.log()
-//		.headers()							  //LOG REQUEST HEADERS
+//		.headers()							  					//LOG REQUEST HEADERS
 //		.log()
-//		.params()							  //LOG REQUEST PARAMS
+//		.params()							  					//LOG REQUEST PARAMS
 //		.log()
-//		.body()		                          //LOG REQUEST BODY
+//		.body()		                          					//LOG REQUEST BODY
 //		.log()
-//		.ifValidationFails()				  //LOG IF VALIDATION FAILS	
+//		.ifValidationFails()				  					//LOG IF VALIDATION FAILS	
 //		.log()
-//		.all()								  //LOG ALL THE DETAILS
+//		.all()								  					//LOG ALL THE DETAILS
 		.when()
 		.get("/list")
-//	    .timeIn(TimeUnit.SECONDS);  		// VERIFYING TIME	
-//  	.asString();                		// JSON ASSERT actual value	
-		.then()        
-//		.extract()		            		// FILE DOWNLOAD SIZE			
-//		.asByteArray();             		// FILE DOWNLOAD SIZE
-//		.extract()							// SEARCH JSON PATH
-//		.path("numItems");		    		// SEARCH JSON PATH  	
-		.body("id",hasItems(10));			// HAMCREST MATCHER
+//	    .timeIn(TimeUnit.SECONDS);  							// VERIFYING TIME	
+//  	.asString();                							// JSON ASSERT actual value	
+		.then()     
+//		.log()
+//		.headers()	
+//		.log()
+//		.status()	
+//		.log()
+//		.body()
+//		.log()
+//		.ifError()		
+//		.extract()		            							// FILE DOWNLOAD SIZE			
+//		.asByteArray();             							// FILE DOWNLOAD SIZE
+//		.extract()												// SEARCH JSON PATH
+//		.path("numItems");		    							// SEARCH JSON PATH  	
+		.body("id",hasItems(10));								// HAMCREST MATCHER
+//		.body("[0].firstName",equalTo("Verno"))					// HARD ASSERT
+//		.body("[0].lastName",equalTo("Harper"))	    			// HARD ASSERT
+//		.body("[0].firstName",equalTo("Vernonw"),   			// SOFT ASSERT
+//				"[0].lastName",equalTo("Harper"));				// SOFT ASSERT	
 		
 		
 		

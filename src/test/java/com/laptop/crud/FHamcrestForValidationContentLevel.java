@@ -4,12 +4,13 @@ import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.port;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.*;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
-import static org.hamcrest.Matchers.*;
 
 
 public class FHamcrestForValidationContentLevel {
