@@ -88,10 +88,13 @@ public class Rough {
 		RestAssured
 		.given()
 //		.auth()													// OAuth 1						
-//		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)		
+//		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)	//OAuth 1	
 //		.auth()													// OAuth 2
 //		.oauth2(accessToken) 									// OAuth 2
-//		.relaxedHTTPSValidation()  								// Will trust all the hostregardless if the SSL certificate is valid
+//      .auth()													// Bypass SSL		
+//		.relaxedHTTPSValidation()  								// Bypass SSL
+//      .auth()													// supply valid certificate 		
+//		.certificate("mykey.store","password")					// supply valid certificate
 //		.contentType(ContentType.JSON)							//Accept the content in Json Format
 //		.contentType("text/xml")
 //		.queryParam("key", "value")
