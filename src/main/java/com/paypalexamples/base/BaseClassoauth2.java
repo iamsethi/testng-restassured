@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 
 import io.restassured.RestAssured;
 
-public class BaseClass {
+public class BaseClassoauth2 {
 	
 	public	static String accessToken;
 	

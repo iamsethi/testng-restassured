@@ -2,6 +2,7 @@ package com.api.rough;
 
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.port;
 import static org.hamcrest.Matchers.hasItems;
 
@@ -21,6 +22,7 @@ import io.restassured.specification.ProxySpecification;
 import io.restassured.specification.RequestSpecification;
 
 public class Rough {
+	public	static String accessToken;
 	static RequestSpecBuilder builder;
 	static RequestSpecification requestSpec;
 	
@@ -32,6 +34,11 @@ public class Rough {
 
 	public static StringWriter errorWriter;
 	public static PrintStream errorCapture;
+	
+	//PUT YOUR CLIENT ID & CLIENT SECRET HERE  https://developer.paypal.com/developer/applications/create
+	public static final String  clientId="AVOTONjTN6MpB3La6q1Kp_Csuwbn5xJA3QVDSJTO0-U8mF5mOaZ2uSyY7hs5mkB-wjz-8eQ3wU9iRx_7";
+	public static  final String  clientSecret="EBDZTgp9LD7Te3wz3ysl1PD8HPBjVFkCl9XupTDpDZful06rotwc_EcqKbyDH971QoH_r__8eUMtoMHs";
+
 
 	@BeforeClass
 	public static void init() {
@@ -61,6 +68,18 @@ public class Rough {
 		builder.addQueryParam("format", "json");									// BUILDER
 		builder.addHeader("Accept", "*/*");											// BUILDER
 		requestSpec = builder.build();												// BUILDER.build()
+	
+		accessToken=	given()
+				.params("grant_type","client_credentials")
+				.auth()
+				.preemptive()
+				.basic(clientId, clientSecret)
+				.when()
+				.post("/oauth2/token")
+				.then()
+				.extract()
+				.path("access_token");
+		 System.out.println("The token is: "+accessToken);
 	}
 
 	@Test
@@ -68,8 +87,15 @@ public class Rough {
 		
 		RestAssured
 		.given()
-//		.contentType(ContentType.JSON)	
-//		.contentType("text/xml")		
+//		.auth()													// OAuth 1						
+//		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)		
+//		.auth()													// OAuth 2
+//		.oauth2(accessToken) 									// OAuth 2
+//		.relaxedHTTPSValidation()  								// Will trust all the hostregardless if the SSL certificate is valid
+//		.contentType(ContentType.JSON)							//Accept the content in Json Format
+//		.contentType("text/xml")
+//		.queryParam("key", "value")
+//		.pathParam("key", "value")		
 		.filter(new RequestLoggingFilter(requestCapture))       //RLF RC  PS WOS
 		.filter(new ResponseLoggingFilter(responseCapture))
 //		.multiPart("source_file",inputFile)   					//FILE UPLOAD
@@ -85,7 +111,14 @@ public class Rough {
 //		.log()
 //		.all()								  					//LOG ALL THE DETAILS
 		.when()
-		.get("/list")
+		.get("/list")											// GET
+//		.body(student)											// POST
+//		.post()													// POST
+//		.body(student)											// PUT
+//		.put("/"+studentId)		                                // PUT
+//		.body(student)											// PATCH
+//		.patch("/"+studentId)									// PATCH	
+//		.delete("/"+studentId)									// DELETE	
 //	    .timeIn(TimeUnit.SECONDS);  							// VERIFYING TIME	
 //  	.asString();                							// JSON ASSERT actual value	
 		.then()     
@@ -102,6 +135,7 @@ public class Rough {
 //		.extract()												// SEARCH JSON PATH
 //		.path("numItems");		    							// SEARCH JSON PATH  	
 		.body("id",hasItems(10));								// HAMCREST MATCHER
+//		.body("query", equalToIgnoringCase("IPOD"));			// HAMCREST MATCHER			
 //		.body("[0].firstName",equalTo("Verno"))					// HARD ASSERT
 //		.body("[0].lastName",equalTo("Harper"))	    			// HARD ASSERT
 //		.body("[0].firstName",equalTo("Vernonw"),   			// SOFT ASSERT

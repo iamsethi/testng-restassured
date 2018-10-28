@@ -41,7 +41,6 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>3.1.1</version>
-			<scope>test</scope>
 		</dependency>
 		<!--POJO to JSON -->
 		<dependency>
@@ -57,11 +56,19 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<!--mysql-jdbc -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.13</version>
+		</dependency>
+
+		<!-- mssql-jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>7.1.1.jre10-preview</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>

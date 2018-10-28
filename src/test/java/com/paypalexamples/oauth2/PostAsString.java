@@ -4,11 +4,11 @@ import static io.restassured.RestAssured.given;
 
 import org.testng.annotations.Test;
 
-import com.paypalexamples.base.BaseClass;
+import com.paypalexamples.base.BaseClassoauth2;
 
 import io.restassured.http.ContentType;
 
-public class PostAsString extends BaseClass {
+public class PostAsString extends BaseClassoauth2 {
  
 	@Test
 	public void createAPayment(){

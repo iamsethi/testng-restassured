@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
-import com.paypalexamples.base.BaseClass;
+import com.paypalexamples.base.BaseClassoauth2;
 import com.paypalexamples.payment.pojo.Amount;
 import com.paypalexamples.payment.pojo.Details;
 import com.paypalexamples.payment.pojo.Item_List;
@@ -21,7 +21,7 @@ import com.paypalexamples.payment.pojo.Transactions;
 
 import io.restassured.http.ContentType;
 
-public class PostAsObject extends BaseClass {
+public class PostAsObject extends BaseClassoauth2 {
  static String payment_id;
 	@Test
 	public void createAPayment(){

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="11" passed="11">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="24828" started-at="2018-10-27T15:44:39Z" finished-at="2018-10-27T15:45:04Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="24828" started-at="2018-10-27T15:44:39Z" finished-at="2018-10-27T15:45:04Z">
+      <class name="com.api.jsonpath.SearchJsonPathExample">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="init" is-config="true" duration-ms="1410" started-at="2018-10-27T21:14:39Z" finished-at="2018-10-27T21:14:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="test001()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test001" duration-ms="6313" started-at="2018-10-27T21:14:40Z" finished-at="2018-10-27T21:14:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test001 -->
+        <test-method status="PASS" signature="test002()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test002" duration-ms="1744" started-at="2018-10-27T21:14:47Z" finished-at="2018-10-27T21:14:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test002 -->
+        <test-method status="PASS" signature="test003()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test003" duration-ms="2006" started-at="2018-10-27T21:14:49Z" finished-at="2018-10-27T21:14:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test003 -->
+        <test-method status="PASS" signature="test004()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test004" duration-ms="1649" started-at="2018-10-27T21:14:51Z" finished-at="2018-10-27T21:14:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test004 -->
+        <test-method status="PASS" signature="test005()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test005" duration-ms="1689" started-at="2018-10-27T21:14:52Z" finished-at="2018-10-27T21:14:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test005 -->
+        <test-method status="PASS" signature="test006()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test006" duration-ms="1671" started-at="2018-10-27T21:14:54Z" finished-at="2018-10-27T21:14:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test006 -->
+        <test-method status="PASS" signature="test007()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test007" duration-ms="1675" started-at="2018-10-27T21:14:56Z" finished-at="2018-10-27T21:14:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test007 -->
+        <test-method status="PASS" signature="test008()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test008" duration-ms="1653" started-at="2018-10-27T21:14:57Z" finished-at="2018-10-27T21:14:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test008 -->
+        <test-method status="PASS" signature="test009()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test009" duration-ms="1571" started-at="2018-10-27T21:14:59Z" finished-at="2018-10-27T21:15:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test009 -->
+        <test-method status="PASS" signature="test010()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test010" duration-ms="1651" started-at="2018-10-27T21:15:00Z" finished-at="2018-10-27T21:15:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test010 -->
+        <test-method status="PASS" signature="test011()[pri:0, instance:com.api.jsonpath.SearchJsonPathExample@523884b2]" name="test011" duration-ms="1615" started-at="2018-10-27T21:15:02Z" finished-at="2018-10-27T21:15:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test011 -->
+      </class> <!-- com.api.jsonpath.SearchJsonPathExample -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

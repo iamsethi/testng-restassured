@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBCConnection {
+public class MySQLJDBCConnection {
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
