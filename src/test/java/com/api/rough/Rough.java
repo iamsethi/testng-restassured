@@ -18,6 +18,7 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.http.ContentType;
 import io.restassured.specification.ProxySpecification;
 import io.restassured.specification.RequestSpecification;
 
@@ -87,15 +88,20 @@ public class Rough {
 		
 		RestAssured
 		.given()
+//		.header("Authorization","Basic utyRewndfH") 			//Auth using header key=Authorization & value = encrypted value of user and pass 
+//		.auth()													// BASIC Auth
+//		.preemptive()                                          //  BASIC Auth it'll always send the u/p along with req
+//		.basic("username", "password")							// BASIC Auth
 //		.auth()													// OAuth 1						
 //		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)	//OAuth 1	
 //		.auth()													// OAuth 2
 //		.oauth2(accessToken) 									// OAuth 2
 //      .auth()													// Bypass SSL		
 //		.relaxedHTTPSValidation()  								// Bypass SSL
-//      .auth()													// supply valid certificate 		
-//		.certificate("mykey.store","password")					// supply valid certificate
-//		.contentType(ContentType.JSON)							//Accept the content in Json Format
+//      .auth()													// supply valid certificate for SSL 		
+//		.certificate("mykey.store","password")					// supply valid certificate for SSL
+//		.accept(ContentType.XML)								// accept the response in XML
+//		.contentType(ContentType.JSON)							// send the request body in JSON format
 //		.contentType("text/xml")
 //		.queryParam("key", "value")
 //		.pathParam("key", "value")		
@@ -103,15 +109,15 @@ public class Rough {
 		.filter(new ResponseLoggingFilter(responseCapture))
 //		.multiPart("source_file",inputFile)   					//FILE UPLOAD
 //		.multiPart("target_format","png")	  					//FILE UPLOAD	
-//		.log()
+//		.log()													//LOG REQUEST HEADERS
 //		.headers()							  					//LOG REQUEST HEADERS
-//		.log()
+//		.log()													//LOG REQUEST PARAMS
 //		.params()							  					//LOG REQUEST PARAMS
-//		.log()
+//		.log()													//LOG REQUEST BODY
 //		.body()		                          					//LOG REQUEST BODY
-//		.log()
+//		.log()													//LOG IF VALIDATION FAILS
 //		.ifValidationFails()				  					//LOG IF VALIDATION FAILS	
-//		.log()
+//		.log()													//LOG ALL THE DETAILS
 //		.all()								  					//LOG ALL THE DETAILS
 		.when()
 		.get("/list")											// GET
