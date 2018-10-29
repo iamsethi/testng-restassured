@@ -46,12 +46,6 @@ public class FilterExamples {
 	
 	@Test
 	public void getStudent(){
-	String response	=RestAssured.given()
-		.when()
-		.get("/list")
-		.asString();
-	
-	System.out.println(response);
 	
 	RestAssured
 	.given()

@@ -11,7 +11,7 @@ https://apps.twitter.com/
 ###################################################################
 LETSKODEIT - 
 
-java -jar rest.jar --server.port=9999
+java -jar rest.jar --server.port=8085
 jsoupExampleSpringSecurity.war credentials are : user and user
 
 ###################################################################
