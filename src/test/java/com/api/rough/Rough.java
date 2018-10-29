@@ -18,7 +18,6 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
-import io.restassured.http.ContentType;
 import io.restassured.specification.ProxySpecification;
 import io.restassured.specification.RequestSpecification;
 
@@ -142,9 +141,19 @@ public class Rough {
 //		.extract()		            							// FILE DOWNLOAD SIZE			
 //		.asByteArray();             							// FILE DOWNLOAD SIZE
 //		.extract()												// SEARCH JSON PATH
-//		.path("numItems");		    							// SEARCH JSON PATH  	
-		.body("id",hasItems(10));								// HAMCREST MATCHER
-//		.body("query", equalToIgnoringCase("IPOD"));			// HAMCREST MATCHER			
+//		.path("numItems");		    							// SEARCH JSON PATH 
+//		.extract()												// GET ENTIRE RESPONSE
+//		.response()												// GET ENTIRE RESPONSE
+//		.extract()												// EXTRACT JSON RESPONSE STRING		
+//		.jsonPath().getString("totalResults")					// STRING just below the root refer screenshot response.jsonpath
+//		.extract()												// EXTRACT JSON RESPONSE LIST	 
+//		.jsonPath().getList("items.itemId")						// List of items[0].itemId,items[1].itemId	
+//		.extract()												// EXTRACT JSON RESPONSE MAP
+//		.jsonPath().get("items[0]");							// EXTRACT JSON RESPONSE MAP
+//		.extract()												// EXTRACT JSON RESPONSE MAP
+//		.jsonPath().getMap("items[0]"));						// EXTRACT JSON RESPONSE MAP		
+		.body("id",hasItems(10));								// HAMCREST MATCHER used in Assertion
+//		.body("query", equalToIgnoringCase("IPOD"));			// HAMCREST MATCHER used in Assertion		
 //		.body("[0].firstName",equalTo("Verno"))					// HARD ASSERT
 //		.body("[0].lastName",equalTo("Harper"))	    			// HARD ASSERT
 //		.body("[0].firstName",equalTo("Vernonw"),   			// SOFT ASSERT
