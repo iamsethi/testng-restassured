@@ -14,7 +14,7 @@ public class CValidatingResponseStatusCode {
 	@Test
 	public void getTest()
 	{
-		String url = "http://localhost:8080/laptop-bag/webapi/api/all";
+		String url = "http://localhost:8888/laptop-bag/webapi/api/all";
 		int code = given()
 				.accept(ContentType.XML)
 				.when()
@@ -23,7 +23,7 @@ public class CValidatingResponseStatusCode {
 				.statusCode();
 		
 		System.out.println(code);
-		Assert.assertEquals(HttpStatus.SC_NO_CONTENT, code);
+		Assert.assertEquals(HttpStatus.SC_OK, code);
 		
 		given()
 		.accept(ContentType.XML)
@@ -31,7 +31,7 @@ public class CValidatingResponseStatusCode {
 		.get(url)
 		.then()
 		.assertThat()
-		.statusCode(HttpStatus.SC_NO_CONTENT);
+		.statusCode(HttpStatus.SC_OK);
 	}
 	
 	

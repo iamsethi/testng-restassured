@@ -2,20 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5874" started-at="2018-10-29T14:51:18Z" finished-at="2018-10-29T14:51:24Z">
+  <suite name="Default suite" duration-ms="3178" started-at="2018-10-29T16:29:01Z" finished-at="2018-10-29T16:29:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5874" started-at="2018-10-29T14:51:18Z" finished-at="2018-10-29T14:51:24Z">
-      <class name="com.api.assertions.AssertionsExamples">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.api.assertions.AssertionsExamples@5b275dab]" name="init" is-config="true" duration-ms="642" started-at="2018-10-29T20:21:18Z" finished-at="2018-10-29T20:21:19Z">
+    <test name="Default test" duration-ms="3178" started-at="2018-10-29T16:29:01Z" finished-at="2018-10-29T16:29:04Z">
+      <class name="com.laptop.crud.CValidatingResponseStatusCode">
+        <test-method status="PASS" signature="getTest()[pri:0, instance:com.laptop.crud.CValidatingResponseStatusCode@1d057a39]" name="getTest" duration-ms="3124" started-at="2018-10-29T21:59:01Z" finished-at="2018-10-29T21:59:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- init -->
-        <test-method status="PASS" signature="test007()[pri:0, instance:com.api.assertions.AssertionsExamples@5b275dab]" name="test007" duration-ms="5185" started-at="2018-10-29T20:21:19Z" finished-at="2018-10-29T20:21:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test007 -->
-      </class> <!-- com.api.assertions.AssertionsExamples -->
+        </test-method> <!-- getTest -->
+      </class> <!-- com.laptop.crud.CValidatingResponseStatusCode -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

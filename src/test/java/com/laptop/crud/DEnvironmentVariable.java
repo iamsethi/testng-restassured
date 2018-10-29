@@ -15,7 +15,7 @@ public class DEnvironmentVariable {
 	public static void setUp()
 	{
 		baseURI ="http://localhost" ;
-		port=8080;
+		port=8888;
 		basePath="/laptop-bag/webapi/api/";
 	}
 	

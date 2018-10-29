@@ -18,20 +18,20 @@ public class FHamcrestForValidationContentLevel {
 	public static void setUp()
 	{
 		baseURI ="http://localhost" ;
-		port=8080;
+		port=8888;
 		basePath="/laptop-bag/webapi/api/";
 	}
 	
 	@Test
 	public void testContent()
 	{
-		String url = "find/203";
+		String url = "find/126";
 		given()
 		.accept(ContentType.JSON)
 		.when()
 		.get(url)
 		.then()
-		.body("BrandName",containsString("Dell"),"Id",equalToIgnoringCase("203"));
+		.body("BrandName",containsString("Dell"),"Id",equalTo(Integer.parseInt("126")));
 
 	}
 	
