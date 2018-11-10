@@ -17,7 +17,8 @@ jsoupExampleSpringSecurity.war credentials are : user and user
 ###################################################################
 LAPTOP - 
 
-docker run -d -p 8888:8080 cloudesire/tomcat:7-jre8
+docker run -d -p 8888:8080 cloudesire/tomcat:8-jre8
+
 
 Mange->Service->Apache Tomcat->start
 

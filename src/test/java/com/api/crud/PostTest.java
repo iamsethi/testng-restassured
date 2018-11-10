@@ -16,7 +16,7 @@ public class PostTest extends TestBase {
 /**
  * Test for creating new student	
  */
-	@Test
+	@Test(description = "http://localhost:8085/student/101")
 	public void createNewStudent(){
 		ArrayList<String> courses = new ArrayList<>();
 		courses.add("Java");

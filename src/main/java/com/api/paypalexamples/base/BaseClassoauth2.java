@@ -4,6 +4,7 @@ package com.api.paypalexamples.base;
 import static io.restassured.RestAssured.given;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 
@@ -32,6 +33,12 @@ public class BaseClassoauth2 {
 				.extract()
 				.path("access_token");
 		 System.out.println("The token is: "+accessToken);
+	}
+	
+	@Test
+	public void test()
+	{
+		System.out.println("Test");
 	}
 	
 }

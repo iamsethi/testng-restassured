@@ -17,7 +17,7 @@ public class PatchTest  extends TestBase{
 	 * Test for Updating student information
 	 */
 	
-	@Test
+	@Test(description="http://localhost:8085/student/50")
 	public void updateStudent(){
 		//Put the student ID here
 		String studentId="50";
@@ -30,7 +30,7 @@ public class PatchTest  extends TestBase{
 		Student student = new Student();
 		student.setFirstName("Mark");
 		student.setLastName("Taylor");
-		student.setEmail("mnxxx@gmail.com");
+		student.setEmail("mnxxxytop@gmail.com");
 		student.setProgramme("Computer Science");
 		student.setCourses(courses);
 		

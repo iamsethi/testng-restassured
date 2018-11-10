@@ -10,12 +10,9 @@ import com.student.base.TestBase;
 import com.student.model.Student;
 
 import io.restassured.http.ContentType;
-public class PutTest extends TestBase{
+public class PutTest extends TestBase{	
 	
-
-	
-	
-	@Test
+	@Test(description="http://localhost:8085/student/50")
 	public void updateStudent(){
 		//Put the student ID here
 		String studentId="50";
@@ -28,7 +25,7 @@ public class PutTest extends TestBase{
 		Student student = new Student();
 		student.setFirstName("Mark");
 		student.setLastName("Taylor");
-		student.setEmail("xyz@gmail.com");
+		student.setEmail("xyzqw@gmail.com");
 		student.setProgramme("Computer Science");
 		student.setCourses(courses);
 		
