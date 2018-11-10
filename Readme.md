@@ -1,4 +1,6 @@
 http://jsonviewer.stack.hu/
+https://any-api.com/
+https://reqres.in/
 
 302 code means successful redirection
 

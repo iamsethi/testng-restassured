@@ -55,7 +55,7 @@ public class GetTest extends TestBase{
 		.statusCode(200);
 	}
 	
-	@Test(description = "http://localhost:8085/student//list?programme=Financial Analysis&limit=2")
+	@Test(description = "http://localhost:8085/student/list?programme=Financial Analysis&limit=2")
 	public void getStudentsFromFA(){
 		Response response=	given()
 		.when()

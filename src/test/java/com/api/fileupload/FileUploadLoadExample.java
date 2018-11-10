@@ -16,7 +16,7 @@ public class FileUploadLoadExample {
 	public void uploadFileExample(){
 
 	//PUT YOU API KEY HERE
-	String apiKey="";
+	String apiKey="5eaa67710bfd39000409ebf618b0a7d949867b62";
 	
 		File inputFile = new File(System.getProperty("user.dir")+File.separator+"dancing_banana.gif");
 		System.out.println(inputFile.length());
