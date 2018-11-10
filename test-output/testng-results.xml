@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3055" started-at="2018-11-10T07:28:17Z" finished-at="2018-11-10T07:28:20Z">
+  <suite name="Default suite" duration-ms="3134" started-at="2018-11-10T09:38:56Z" finished-at="2018-11-10T09:38:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3055" started-at="2018-11-10T07:28:17Z" finished-at="2018-11-10T07:28:20Z">
-      <class name="com.api.crud.PostTest">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.api.crud.PostTest@29774679]" name="init" is-config="true" duration-ms="715" started-at="2018-11-10T12:58:17Z" finished-at="2018-11-10T12:58:17Z">
+    <test name="Default test" duration-ms="3134" started-at="2018-11-10T09:38:56Z" finished-at="2018-11-10T09:38:59Z">
+      <class name="com.api.crud.GetTest">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.api.crud.GetTest@29774679]" name="init" is-config="true" duration-ms="874" started-at="2018-11-10T15:08:56Z" finished-at="2018-11-10T15:08:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="createNewStudent()[pri:0, instance:com.api.crud.PostTest@29774679]" name="createNewStudent" duration-ms="2302" started-at="2018-11-10T12:58:17Z" finished-at="2018-11-10T12:58:20Z">
+        <test-method status="PASS" signature="getStudentsFromFA()[pri:0, instance:com.api.crud.GetTest@29774679]" name="getStudentsFromFA" duration-ms="2212" started-at="2018-11-10T15:08:57Z" description="http://localhost:8085/student/list?programme=Financial Analysis&amp;limit=2" finished-at="2018-11-10T15:08:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createNewStudent -->
-      </class> <!-- com.api.crud.PostTest -->
+        </test-method> <!-- getStudentsFromFA -->
+      </class> <!-- com.api.crud.GetTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
