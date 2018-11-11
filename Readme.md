@@ -26,3 +26,17 @@ Mange->Service->Apache Tomcat->start
 
 localhost:8888 -> Go to Manage App -> 
 
+############################OAUTH2######################################
+GET access_token-
+https://api.sandbox.paypal.com/v1/oauth2/token
+params - grant_type:client_credentials
+USE Access Token in this POST request
+https://api.sandbox.paypal.com/v1/payments/payment
+body - ""		
+############################PATH######################################		
+http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json
+
+
+
+
+

@@ -43,7 +43,7 @@ public class Rough {
 	@BeforeClass
 	public static void init() {
 		baseURI = "http://localhost";
-		port=8080;
+		port=8085;
 		basePath = "/v1/public";
 //		rootPath="query.results.rate";
 		
