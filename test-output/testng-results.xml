@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2348" started-at="2018-11-11T09:27:41Z" finished-at="2018-11-11T09:27:44Z">
+  <suite name="Default suite" duration-ms="8708" started-at="2018-11-11T11:30:08Z" finished-at="2018-11-11T11:30:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2348" started-at="2018-11-11T09:27:41Z" finished-at="2018-11-11T09:27:44Z">
+    <test name="Default test" duration-ms="8708" started-at="2018-11-11T11:30:08Z" finished-at="2018-11-11T11:30:16Z">
       <class name="com.api.rough.Test">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.api.rough.Test@5b275dab]" name="init" is-config="true" duration-ms="625" started-at="2018-11-11T14:57:41Z" finished-at="2018-11-11T14:57:42Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.api.rough.Test@5b275dab]" name="init" is-config="true" duration-ms="1489" started-at="2018-11-11T17:00:08Z" finished-at="2018-11-11T17:00:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="test()[pri:0, instance:com.api.rough.Test@5b275dab]" name="test" duration-ms="1687" started-at="2018-11-11T14:57:42Z" finished-at="2018-11-11T14:57:44Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.api.rough.Test@5b275dab]" name="test" duration-ms="7143" started-at="2018-11-11T17:00:09Z" finished-at="2018-11-11T17:00:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
