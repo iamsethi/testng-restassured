@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3134" started-at="2018-11-10T09:38:56Z" finished-at="2018-11-10T09:38:59Z">
+  <suite name="Default suite" duration-ms="8260" started-at="2018-11-11T07:22:53Z" finished-at="2018-11-11T07:23:01Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3134" started-at="2018-11-10T09:38:56Z" finished-at="2018-11-10T09:38:59Z">
-      <class name="com.api.crud.GetTest">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.api.crud.GetTest@29774679]" name="init" is-config="true" duration-ms="874" started-at="2018-11-10T15:08:56Z" finished-at="2018-11-10T15:08:57Z">
+    <test name="Default test" duration-ms="8260" started-at="2018-11-11T07:22:53Z" finished-at="2018-11-11T07:23:01Z">
+      <class name="com.api.rough.Test">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.api.rough.Test@5b275dab]" name="init" is-config="true" duration-ms="5943" started-at="2018-11-11T12:52:53Z" finished-at="2018-11-11T12:52:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="getStudentsFromFA()[pri:0, instance:com.api.crud.GetTest@29774679]" name="getStudentsFromFA" duration-ms="2212" started-at="2018-11-10T15:08:57Z" description="http://localhost:8085/student/list?programme=Financial Analysis&amp;limit=2" finished-at="2018-11-10T15:08:59Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.api.rough.Test@5b275dab]" name="test" duration-ms="2270" started-at="2018-11-11T12:52:59Z" description="https://api.sandbox.paypal.com/v1/oauth2/token" finished-at="2018-11-11T12:53:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getStudentsFromFA -->
-      </class> <!-- com.api.crud.GetTest -->
+        </test-method> <!-- test -->
+      </class> <!-- com.api.rough.Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
