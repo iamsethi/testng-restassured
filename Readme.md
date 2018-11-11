@@ -24,16 +24,75 @@ docker run -d -p 8888:8080 cloudesire/tomcat:8-jre8
 
 Mange->Service->Apache Tomcat->start
 
-localhost:8888 -> Go to Manage App -> 
+localhost:8888 -> Go to Manage App ->
 
-############################OAUTH2######################################
-GET access_token-
-https://api.sandbox.paypal.com/v1/oauth2/token
-params - grant_type:client_credentials
-USE Access Token in below POST request
+############################ GET http://localhost:8085/student/list  ######################################
+Response response=  .when()
+						.get("/list");
+							
+System.out.println(response.body().prettyPrint());
+System.out.println(response.body().prettyPeek());	
+############################ PUT http://localhost:8085/student/50  ######################################	
+Using Postman GET http://localhost:8085/student/50 
+Copy the response
+Go to http://jsonviewer.stack.hu/
+Remove white spaces like this
+{"firstName":"Mark","lastName":"Taylor","email":"xyzqw@gmail.com","programme":"Computer Science","courses":["Java","C++","C#"]}
+
+ given()
+ .contentType(ContentType.JSON)
+ .when()
+		.body(myBody)
+		.put("/50")
+############################ POST http://localhost:8085/student ######################################
+ given()
+ .contentType(ContentType.JSON)
+ .when()
+		.body(myBody)
+		.post()		
+############################ DELETE http://localhost:8085/student ######################################	
+given()
+		.when()
+		.delete("/101")
+############################ PATCH http://localhost:8085/student/50 ######################################
+given()
+		.contentType(ContentType.JSON)
+		.when()
+		.body(student)
+		.patch("/50")
+
+############################BASIC AUTH ######################################
+POST - https://api.sandbox.paypal.com/v1/oauth2/token
+BODY -  grant_type:client_credentials [check radio button x-www-form-urlencoded]
+
+clientId="AVOTONjTN6MpB3La6q1Kp_Csuwbn5xJA3QVDSJTO0-U8mF5mOaZ2uSyY7hs5mkB-wjz-8eQ3wU9iRx_7";
+clientSecret="EBDZTgp9LD7Te3wz3ysl1PD8HPBjVFkCl9XupTDpDZful06rotwc_EcqKbyDH971QoH_r__8eUMtoMHs";
+
+ accessToken=		given()
+					.params("grant_type","client_credentials")
+					.auth()
+					.preemptive()
+					.basic(clientId, clientSecret)			//IMP
+					.when()
+					.post("/oauth2/token")
+					.then()
+					.extract()
+					.path("access_token");
+					
+System.out.println(accessToken);
+############################ OAUTH2 ######################################
+USE Access Token obtained from BASIC AUTH in below POST request
 https://api.sandbox.paypal.com/v1/payments/payment
-body - ""		
-############################PATH######################################		
+		given()
+		.contentType(ContentType.JSON)
+		.auth()
+		.oauth2(accessToken)								// IMP
+		.when()
+		.body(body)													
+		.post("/payments/payment")
+		.then()
+		.statusCode(HttpStatus.SC_CREATED);		
+############################ ASSERTIONS ######################################		
 http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json
 .then()
         .body("numItems", equalTo(10));

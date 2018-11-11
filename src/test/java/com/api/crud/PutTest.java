@@ -33,6 +33,8 @@ public class PutTest extends TestBase{
 		.contentType(ContentType.JSON)
 		.when()
 		.body(student)
+		.log()
+		.all()
 		.put("/"+studentId)
 		.then()
 		.statusCode(200);
