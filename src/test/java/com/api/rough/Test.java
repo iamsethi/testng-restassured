@@ -3,35 +3,36 @@ package com.api.rough;
 //Static Imports
 import static io.restassured.RestAssured.given;
 
-import org.apache.http.HttpStatus;
+import java.io.File;
+
 import org.testng.annotations.BeforeClass;
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 
 public class Test {
 
 	@BeforeClass
 	public void init() {
-		RestAssured.baseURI = "http://localhost:8085/student";		
+		RestAssured.baseURI = "https://sandbox.zamzar.com";
 	}
-	
+
 	@org.testng.annotations.Test()
 	public void test()
 	{
-		String body = "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"gmail@gmail.com\",\"programme\":\"Computer Science\",\"courses\":[\"Java\",\"C++\"]}";
-	given()
-	.contentType(ContentType.JSON)
-	.when()
-	.body(body)
-	.post()
-	.then()
-	.statusCode(HttpStatus.SC_CREATED);	
-	
 		
+		
+	given()
+	.auth()
+	.basic("5eaa67710bfd39000409ebf618b0a7d949867b62", "")	
+	.multiPart("source_file",new File(System.getProperty("user.dir")+File.separator+"dancing_banana.gif"))
+	.multiPart("target_format","png")
+	.when()
+	.post("/v1/jobs")
+	.then()
+	.log()
+	.all();
+	
 
 	}
-	
-	
 
 }

@@ -2,6 +2,7 @@ http://jsonviewer.stack.hu/
 https://any-api.com/
 https://reqres.in/
 
+200 - SC_OK
 302 code means successful redirection
 
 ############################JAVADOC#######################################
@@ -26,13 +27,13 @@ Mange->Service->Apache Tomcat->start
 
 localhost:8888 -> Go to Manage App ->
 
-############################ GET http://localhost:8085/student/list  ######################################
+############################ GET http://localhost:8085/student ######################################
 Response response=  .when()
 						.get("/list");
 							
 System.out.println(response.body().prettyPrint());
 System.out.println(response.body().prettyPeek());	
-############################ PUT http://localhost:8085/student/50  ######################################	
+############################ PUT http://localhost:8085/student  ######################################	
 Using Postman GET http://localhost:8085/student/50 
 Copy the response
 Go to http://jsonviewer.stack.hu/
@@ -45,6 +46,8 @@ Remove white spaces like this
 		.body(myBody)
 		.put("/50")
 ############################ POST http://localhost:8085/student ######################################
+String body = "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"unique@gmail.com\",\"programme\":\"Computer Science\",\"courses\":[\"Java\",\"C++\"]}";
+	
  given()
  .contentType(ContentType.JSON)
  .when()
@@ -105,12 +108,11 @@ http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&
 		.body("items.name",hasItem("Apple iPod touch 128GB"))
 		.body("items.size()",equalTo(10))
 		
-############################ GET RESPONSE TIME ######################################
-http://localhost:8085/student/list
+############################ GET RESPONSE TIME http://localhost:8085/student/list ######################################
+
 long respTime = .get("/list")
 					.timeIn(TimeUnit.MILLISECONDS);	
-############################VERIFY RESONSE TIME ######################################
-http://localhost:8085/student/list
+############################VERIFY RESONSE TIME http://localhost:8085/student/list######################################
 static ResponseSpecBuilder responsebuilder;
 static ResponseSpecification responseSpec;
 
@@ -120,6 +122,40 @@ responseSpec= responsebuilder.build();
 
 .get("/list")
 	.then()
-	.spec(responseSpec);	
+	.spec(responseSpec);
+	
+############################Difference Between PUT and PATCH Requests ######################################	
+Suppose we have a resource that holds the first name and last name of a person.
+If we want to change the first name then we send a put request for Update
+{ "first": "Michael", "last": "Angelo" }
+Here, although we are only changing the first name, with PUT request we have to send both parameters first and last.
+In other words, it is mandatory to send all values again, the full payload.
+When we send a PATCH request, however, we only send the data which we want to update. In other words, 
+we only send the first name to update, no need to send the last name.
+For this reason, PATCH request requires less bandwidth.
+
+
+####################### File Download ####################################
+## https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-arm7hf.tar.gz ###########
+
+byte[] actualValue=given()
+		.when()
+		.get(endpoint)
+		 .then()
+		 .extract()
+		 .asByteArray();
+
+####################### File Upload/Conversion https://sandbox.zamzar.com/v1/jobs####################################
+String apiKey="5eaa67710bfd39000409ebf618b0a7d949867b62";
+given()
+		.auth()
+		.basic(apiKey,"")
+		.multiPart("source_file",new File(System.getProperty("user.dir")+File.separator+"dancing_banana.gif"))
+		.multiPart("target_format","png")
+		.when()
+		.post(endpoint)
+		
+https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-arm7hf.tar.gz
+		
 
 
