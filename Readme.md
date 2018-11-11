@@ -64,8 +64,7 @@ given()
 		.body(student)
 		.patch("/50")
 
-############################BASIC AUTH ######################################
-POST - https://api.sandbox.paypal.com/v1/oauth2/token
+########BASIC AUTH POST - https://api.sandbox.paypal.com/v1/oauth2/token ######################################
 BODY -  grant_type:client_credentials [check radio button x-www-form-urlencoded]
 
 clientId="AVOTONjTN6MpB3La6q1Kp_Csuwbn5xJA3QVDSJTO0-U8mF5mOaZ2uSyY7hs5mkB-wjz-8eQ3wU9iRx_7";
@@ -83,9 +82,8 @@ clientSecret="EBDZTgp9LD7Te3wz3ysl1PD8HPBjVFkCl9XupTDpDZful06rotwc_EcqKbyDH971Qo
 					.path("access_token");
 					
 System.out.println(accessToken);
-############################ OAUTH2 ######################################
+################## OAUTH2 https://api.sandbox.paypal.com/v1/payments/payment ######################################
 USE Access Token obtained from BASIC AUTH in below POST request
-https://api.sandbox.paypal.com/v1/payments/payment
 		given()
 		.contentType(ContentType.JSON)
 		.auth()
@@ -94,9 +92,10 @@ https://api.sandbox.paypal.com/v1/payments/payment
 		.body(body)													
 		.post("/payments/payment")
 		.then()
-		.statusCode(HttpStatus.SC_CREATED);		
-############################ ASSERTIONS ######################################		
-http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json
+		.statusCode(HttpStatus.SC_CREATED);	
+			
+###### Assertions http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json ######	
+
 .then()
         .body("numItems", equalTo(10));
         .body("query", equalToIgnoringCase("IPOD"));
@@ -135,8 +134,7 @@ we only send the first name to update, no need to send the last name.
 For this reason, PATCH request requires less bandwidth.
 
 
-####################### File Download ####################################
-## https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-arm7hf.tar.gz ###########
+#####File Download  https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-arm7hf.tar.gz ###########
 
 byte[] actualValue=given()
 		.when()
@@ -155,7 +153,46 @@ given()
 		.when()
 		.post(endpoint)
 		
-https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-arm7hf.tar.gz
+##############RLF RC WOS PS #Filters http://localhost:8085/student ##################################
+
+public static StringWriter requestWriter;
+public static PrintStream requestCapture;
+
+requestCapture = new PrintStream(new WriterOutputStream(requestWriter),true);
+
+given()
+	.filter(new RequestLoggingFilter(requestCapture))  //RLF RC new PS WOS PS
+	.when()
+	.get("/list");
+	
+System.err.println(requestWriter.toString());
+
+###############JSONAssert  http://localhost:8085/student  ##org.skyscreamer.jsonassert.JSONAssert;###
+String expectedValue = new String(
+				Files.readAllBytes(Paths.get(System.getProperty("user.dir") + File.separator + "file.txt")));
+String actualValue = given()
+						.when()
+						.get("/list").asString();
+
+JSONAssert.assertEquals(expectedValue, actualValue, JSONCompareMode.STRICT);  //  "file.txt"	
+JSONAssert.assertEquals(expectedValue, actualValue, JSONCompareMode.LENIENT); //  "difforder.txt"
+
+#########JSONPath http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json #########
+
+given()
+												.queryParam("query","ipod")
+												.queryParam("apiKey",APIKEY)
+												.queryParam("format","json")
+												.when()
+												.get("/search")
+int numItems=									.then().extract().path("numItems");
+String queryValue=								.then().extract().path("query");
+String productName=								.then().extract().path("items[0].name");
+HashMap<String,String> giftOptions=				.then().extract().path("items[0].giftOptions");  
+int size=										.then().extract().path("items.size()");
+List<String> names=								.then().extract().path("items.name");
+List<HashMap<String,Object>> x=					.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}");
+												.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}.salePrice");
 		
 
 
