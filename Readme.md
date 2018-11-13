@@ -4,27 +4,19 @@ https://reqres.in/
 
 200 - SC_OK
 
-/** {@code 200 OK} (HTTP/1.0 - RFC 1945) */
 public static final int SC_OK = 200;
-/** {@code 201 Created} (HTTP/1.0 - RFC 1945) */
 public static final int SC_CREATED = 201;
-/** {@code 202 Accepted} (HTTP/1.0 - RFC 1945) */
 public static final int SC_ACCEPTED = 202;
-/** {@code 203 Non Authoritative Information} (HTTP/1.1 - RFC 2616) */
 public static final int SC_NON_AUTHORITATIVE_INFORMATION = 203;
-/** {@code 204 No Content} (HTTP/1.0 - RFC 1945) */
 public static final int SC_NO_CONTENT = 204;
 
-/** {@code 400 Bad Request} (HTTP/1.1 - RFC 2616) */
+
 public static final int SC_BAD_REQUEST = 400;
-/** {@code 401 Unauthorized} (HTTP/1.0 - RFC 1945) */
 public static final int SC_UNAUTHORIZED = 401;
-/** {@code 402 Payment Required} (HTTP/1.1 - RFC 2616) */
 public static final int SC_PAYMENT_REQUIRED = 402;
-/** {@code 403 Forbidden} (HTTP/1.0 - RFC 1945) */
 public static final int SC_FORBIDDEN = 403;
-/** {@code 404 Not Found} (HTTP/1.0 - RFC 1945) */
 public static final int SC_NOT_FOUND = 404;
+
 302 code means successful redirection
 
 ############################JAVADOC#######################################
