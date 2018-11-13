@@ -3,6 +3,28 @@ https://any-api.com/
 https://reqres.in/
 
 200 - SC_OK
+
+/** {@code 200 OK} (HTTP/1.0 - RFC 1945) */
+public static final int SC_OK = 200;
+/** {@code 201 Created} (HTTP/1.0 - RFC 1945) */
+public static final int SC_CREATED = 201;
+/** {@code 202 Accepted} (HTTP/1.0 - RFC 1945) */
+public static final int SC_ACCEPTED = 202;
+/** {@code 203 Non Authoritative Information} (HTTP/1.1 - RFC 2616) */
+public static final int SC_NON_AUTHORITATIVE_INFORMATION = 203;
+/** {@code 204 No Content} (HTTP/1.0 - RFC 1945) */
+public static final int SC_NO_CONTENT = 204;
+
+/** {@code 400 Bad Request} (HTTP/1.1 - RFC 2616) */
+public static final int SC_BAD_REQUEST = 400;
+/** {@code 401 Unauthorized} (HTTP/1.0 - RFC 1945) */
+public static final int SC_UNAUTHORIZED = 401;
+/** {@code 402 Payment Required} (HTTP/1.1 - RFC 2616) */
+public static final int SC_PAYMENT_REQUIRED = 402;
+/** {@code 403 Forbidden} (HTTP/1.0 - RFC 1945) */
+public static final int SC_FORBIDDEN = 403;
+/** {@code 404 Not Found} (HTTP/1.0 - RFC 1945) */
+public static final int SC_NOT_FOUND = 404;
 302 code means successful redirection
 
 ############################JAVADOC#######################################
@@ -180,19 +202,19 @@ JSONAssert.assertEquals(expectedValue, actualValue, JSONCompareMode.LENIENT); //
 #########JSONPath http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json #########
 
 given()
-												.queryParam("query","ipod")
-												.queryParam("apiKey",APIKEY)
-												.queryParam("format","json")
-												.when()
-												.get("/search")
-int numItems=									.then().extract().path("numItems");
-String queryValue=								.then().extract().path("query");
-String productName=								.then().extract().path("items[0].name");
-HashMap<String,String> giftOptions=				.then().extract().path("items[0].giftOptions");  
-int size=										.then().extract().path("items.size()");
-List<String> names=								.then().extract().path("items.name");
-List<HashMap<String,Object>> x=					.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}");
-												.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}.salePrice");
+										.queryParam("query","ipod")
+										.queryParam("apiKey",APIKEY)
+										.queryParam("format","json")
+										.when()
+										.get("/search")
+int numItems=							.then().extract().path("numItems");
+String queryValue=						.then().extract().path("query");
+String productName=						.then().extract().path("items[0].name");
+HashMap<String,String> giftOptions=		.then().extract().path("items[0].giftOptions");  
+int size=								.then().extract().path("items.size()");
+List<String> names=						.then().extract().path("items.name");
+List<HashMap<String,Object>> x=			.then().extract().path("items.findAll{it.name=='Apple 											iPod touch 32GB'}");
+										.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}.salePrice");
 		
 
 
