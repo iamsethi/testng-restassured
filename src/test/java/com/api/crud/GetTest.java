@@ -12,7 +12,7 @@ public class GetTest extends TestBase{
 
 	
 	
-	@Test
+	@Test(description = "http://localhost:8085/student/list")
 	public void getAllStudentInformation(){
 	 /**
 	  * given()
@@ -40,7 +40,7 @@ public class GetTest extends TestBase{
 		
 	}
 	
-	@Test
+	@Test(description = "http://localhost:8085/student/1")
 	public void getStudentInfo(){
 		Response response=given()
 		.when()
@@ -55,7 +55,7 @@ public class GetTest extends TestBase{
 		.statusCode(200);
 	}
 	
-	@Test
+	@Test(description = "http://localhost:8085/student/list?programme=Financial Analysis&limit=2")
 	public void getStudentsFromFA(){
 		Response response=	given()
 		.when()
