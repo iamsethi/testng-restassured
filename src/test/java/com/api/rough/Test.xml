@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression Suite">
+	<test name=" Test Suite 1">
+		<groups>
+			<define name="all">
+				<include name="cars" />
+				<include name="bikes" />
+			</define>
+			<define name="1">
+				<include name="cars" />
+			</define>
+			<define name="2">
+				<include name="bikes" />
+			</define>
+			<run>
+				<include name="all" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.api.rough.Rough" />
+		</classes>
+	</test>
+
+</suite>
+

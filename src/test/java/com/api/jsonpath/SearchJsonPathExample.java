@@ -190,7 +190,7 @@ public class SearchJsonPathExample {
 		.queryParam("format","json")
 		.when()
 		.get("/search")
-		.then().extract().path("items.findAll{it.name==~/Ref.*/}.msrp");
+		.then().log().all().extract().path("items.findAll{it.name==~/Ref.*/}.msrp");
 		
 		System.out.println("------------------StartingTest---------------------------");
 		System.out.println("The msrp of items that start with Ref are: "+msrpValues);

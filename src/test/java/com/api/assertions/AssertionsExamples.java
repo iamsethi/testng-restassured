@@ -5,12 +5,12 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
+import static org.hamcrest.Matchers.hasEntry;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,26 +18,26 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 
 public class AssertionsExamples {
-	static final String APIKEY = "s7wv3tu7h8snrjz5de29uq8v";
+	static final String APIKEY = "38456a8097msh8b40ea11c2cad67p1f4175jsn50cae3bbd864";
 
 	@BeforeClass
 	public static void init() {
 
-		RestAssured.baseURI = "http://api.walmartlabs.com";
-		RestAssured.basePath = "/v1";
+		RestAssured.baseURI = "https://trains.p.rapidapi.com/";
 	}
+	
 
 	// 1) Verify if the number of items is equal to 10
 	@Test
 	public void test001() {
 		given()
-				.queryParam("query","ipod")
-				.queryParam("apiKey",APIKEY)
-				.queryParam("format","json")
-				.when()
-				.get("/search")
-				.then()
-				.body("numItems", equalTo(10));
+		.header("Content-Type", "application/json")
+		.header("X-RapidAPI-Key", APIKEY)
+		.when()
+		.body("{\"search\":\"Rajdhani\"}")
+		.post()
+		.then()
+			.body("train_num.size()", equalTo(6));
 		
 	}
 
@@ -45,13 +45,13 @@ public class AssertionsExamples {
 	@Test
 	public void test002() {
 		given()
-		.queryParam("query","ipod")
-		.queryParam("apiKey",APIKEY)
-		.queryParam("format","json")
+		.header("Content-Type", "application/json")
+		.header("X-RapidAPI-Key", APIKEY)
 		.when()
-		.get("/search")
+		.body("{\"search\":\"Rajdhani\"}")
+		.post()
 		.then()
-		.body("query", equalToIgnoringCase("IPOD"));
+		.body("train_from[0]", equalToIgnoringCase("dbrg"));
 	}
 
 
@@ -59,87 +59,85 @@ public class AssertionsExamples {
 	@Test
 	public void test003() {
 		given()
-		.queryParam("query","ipod")
-		.queryParam("apiKey",APIKEY)
-		.queryParam("format","json")
+		.header("Content-Type", "application/json")
+		.header("X-RapidAPI-Key", APIKEY)
 		.when()
-		.get("/search")
+		.body("{\"search\":\"Rajdhani\"}")
+		.post()
 		.then()
-		.body("items.name",hasItem("Apple iPod touch 128GB"));
-	}
+		.body("train_from",hasItem("NDLS"));}
 
 	// 4) Check Multiple Names in ArrayList
 	@Test
 	public void test004() {
 		given()
-		.queryParam("query","ipod")
-		.queryParam("apiKey",APIKEY)
-		.queryParam("format","json")
+		.header("Content-Type", "application/json")
+		.header("X-RapidAPI-Key", APIKEY)
 		.when()
-		.get("/search")
+		.body("{\"search\":\"Rajdhani\"}")
+		.post()
 		.then()
-		.body("items.name",hasItems("Apple iPod touch 128GB"));
-	}
+		.body("train_from",hasItems("NDLS","DBRG"));}
+
 	
 	// 5) Verify the gift options for the first product (Checking Values inside Map using hasValue())
 		@Test
 		public void test005() {
 			given()
-			.queryParam("query","ipod")
-			.queryParam("apiKey",APIKEY)
-			.queryParam("format","json")
+			.header("Content-Type", "application/json")
+			.header("X-RapidAPI-Key", APIKEY)
 			.when()
-			.get("/search")
+			.body("{\"search\":\"Rajdhani\"}")
+			.post()
 			.then()
-			.body("items[0].imageEntities[0]", hasKey("entityType"));
+			.body("data[0]", hasKey("classes"));
 			}
 
+
+
 	// 6) Check hashmap values inside a list
-	@Test
-	public void test006() {
-
-				given()
-				.queryParam("query","ipod")
-				.queryParam("apiKey",APIKEY)
-				.queryParam("format","json")
-				.when()
-				.get("/search")
-				.then()
-				.body("items.findAll{it.name=='Apple iPod touch 128GB'}", hasItems(hasEntry("name", "Apple iPod touch 128GB")));
-				
-	}
-	
-
+		@Test
+		public void test006() {
+			given()
+			.header("Content-Type", "application/json")
+			.header("X-RapidAPI-Key", APIKEY)
+			.when()
+			.body("{\"search\":\"Rajdhani\"}")
+			.post()
+			.then()
+			.body("data.findAll{it.id=='7974'}", hasItems(hasEntry("id", "7974")));
+					
+		}
+		
 	// 7) Checking multiple values in the same statement
-	@Test
-	public void test007() {
-		given()
-		.queryParam("query","ipod")
-		.queryParam("apiKey",APIKEY)
-		.queryParam("format","json")
-		.when()
-		.get("/search")
-		.then()
-		.body("items.findAll{it.name=='Apple iPod touch 128GB'}", hasItems(hasEntry("name", "Apple iPod touch 128GB")))
-		.body("items.name",hasItem("Apple iPod touch 128GB"))
-		.statusCode(200);
-	}
-
+	  @Test
+		public void test007() {
+			given()
+			.header("Content-Type", "application/json")
+			.header("X-RapidAPI-Key", APIKEY)
+			.when()
+			.body("{\"search\":\"Rajdhani\"}")
+			.post()
+			.then()
+			.body("data.findAll{it.id=='7974'}", hasItems(hasEntry("id", "7974")))
+			.body("data.id",hasItem("7974"))
+			.statusCode(200);
+		}
 	// 8) Logical Assertions
 	@Test
 	public void test008() {
 		given()
-		.queryParam("query","ipod")
-		.queryParam("apiKey",APIKEY)
-		.queryParam("format","json")
+		.header("Content-Type", "application/json")
+		.header("X-RapidAPI-Key", APIKEY)
 		.when()
-		.get("/search")
+		.body("{\"search\":\"Rajdhani\"}")
+		.post()
 		.then()
-		.body("items.size()",equalTo(10))
-		.body("items.size()",greaterThan(5))
-		.body("items.size()",lessThan(11))
-		.body("items.size()",greaterThanOrEqualTo(10))
-		.body("items.size()",lessThanOrEqualTo(10));
+		.body("train_num.size()",equalTo(6))
+		.body("train_num.size()",greaterThan(5))
+		.body("train_num.size()",lessThan(11))
+		.body("train_num.size()",greaterThanOrEqualTo(6))
+		.body("train_num.size()",lessThanOrEqualTo(6));
 			
 	}
 
