@@ -12,15 +12,14 @@ import io.restassured.RestAssured;
 import io.restassured.internal.path.xml.NodeChildrenImpl;
 
 public class SearchXMLPathExamples {
-	static final String APIKEY = "YOUR_API_KEY";
-
+	static final String APIKEY = "s7wv3tu7h8snrjz5de29uq8v";
+	
 	@BeforeClass
 	public static void init() {
-
+		
 		RestAssured.baseURI = "http://api.walmartlabs.com";
 		RestAssured.basePath = "/v1";
 	}
-
 	// 1) Extract numItems
 	@Test
 	public void test001() {
@@ -32,6 +31,8 @@ public class SearchXMLPathExamples {
 				.when()
 				.get("/search")
 				.then()
+				.log()
+				.all()
 				.extract()
 				.path("searchresponse.numItems");
 

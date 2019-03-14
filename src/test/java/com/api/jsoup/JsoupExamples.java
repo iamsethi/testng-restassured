@@ -24,14 +24,20 @@ public class JsoupExamples {
 		RestAssured.baseURI = "http://localhost:8085";
 		filter = new SessionFilter();//session ID will be captured in this filter
 
-		RestAssured.given().auth().form("user", "user", new FormAuthConfig("/login", "uname", "pwd")).filter(filter) 
-				.post().then();
+		RestAssured.given()
+					.auth()
+					.form("user", "user", new FormAuthConfig("/login", "uname", "pwd")).filter(filter) 
+					.post()
+					.then();
 
 	}
 
 	@Test
 	public void extractTitle() {
-		String response = RestAssured.given().when().get("http://localhost:8085/").asString();
+		String response = RestAssured.given()
+									.when()
+									.get("http://localhost:8085/")
+									.asString();
 
 		Document document = Jsoup.parse(response);
 

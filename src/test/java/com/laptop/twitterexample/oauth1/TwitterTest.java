@@ -27,14 +27,11 @@ public class TwitterTest {
 		given()
 		.auth()
 		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)
-		.queryParam("status","This is my first tweet from Rest Assured")
-		.log()
-		.all()
+		.queryParam("status","Love u @msdhoni!!")
 		.when()
 		.post("/update.json")
 		.then()
-		.log()
-		.all();
+		.statusCode(200);
 	}
 	
 	@Test
@@ -43,13 +40,10 @@ public class TwitterTest {
 		.auth()
 		.oauth(consumerKey, consumerSecret, accessTokenSecret, secretToken)
 		.queryParam("screen_name","iam_sethi")
-		.log()
-		.all()
 		.when()
 		.get("/user_timeline.json")
 		.then()
-		.log()
-		.all();
+		.statusCode(200);
 	}
 
 }

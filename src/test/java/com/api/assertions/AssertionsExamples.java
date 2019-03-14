@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 
 public class AssertionsExamples {
-	static final String OAUTH_TOKEN = "BQCnMIuTpOxydEkxChZ-rHUBT9lwoIz4K8CQ-fCoZ6BFcEf8tA_30ZU4ouBaesj52_BcF5Hm_eNLqJPmSAPotJ4yaIgLXUOedzvf8xNWbvTn0VuX5wvXMBk2_PtHjddNA3aY7DOTNSebKtmLzqm56BeNdmMv3zCr1g";
+	static final String OAUTH_TOKEN = "BQAn-qK_njsN4QS_YDxiBuXzXU_X3gozuJJ7sHtw5V7jGNxETIjowLesCMGeo17UbDy8fKKTVZ0hKPNtF9KlsCKjC84qmTvs9lIVkgcF2S6IgVWV8AUs1J_2fJkeAKnW_uR1RhQZsWlpYb6Ef_D-j4jn9uWqeLo_Wg";
 	//generate OAUTH_TOKEN manually
 	//https://developer.spotify.com/console/get-artist-albums/?id=0TnOYISbd1XYRBk9myaseg&include_groups=single%2Cappears_on&market=ES&limit=10&offset=5
 	@BeforeClass
