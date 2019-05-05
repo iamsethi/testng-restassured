@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 
 public class AssertionsExamples {
-	static final String OAUTH_TOKEN = "BQAn-qK_njsN4QS_YDxiBuXzXU_X3gozuJJ7sHtw5V7jGNxETIjowLesCMGeo17UbDy8fKKTVZ0hKPNtF9KlsCKjC84qmTvs9lIVkgcF2S6IgVWV8AUs1J_2fJkeAKnW_uR1RhQZsWlpYb6Ef_D-j4jn9uWqeLo_Wg";
+	static final String OAUTH_TOKEN = "BQBTRyy7kUbCA88il7Fe7Ds6U3B7vzqhBavmDlajaPa9UIGHyEtm_uAEDowrz_kqdHj386D3m_3qoEcS6fcE0wqN78ZooZD3VcYicrNlizDg73t8i3x43-LBHq8_BFDEQm9whxC_2C8UTJNnq75oUNLp0SoIOz0TJw";
 	//generate OAUTH_TOKEN manually
 	//https://developer.spotify.com/console/get-artist-albums/?id=0TnOYISbd1XYRBk9myaseg&include_groups=single%2Cappears_on&market=ES&limit=10&offset=5
 	@BeforeClass
@@ -45,6 +45,24 @@ public class AssertionsExamples {
 		.body("items.size()", equalTo(10));
 		
 	}
+	
+	@Test
+	public void mytest001() {
+		given()
+		.header("Accept", "application/json")
+		.header("Content-Type","application/json")
+		.auth()
+		.oauth2(OAUTH_TOKEN)
+		.queryParam("market", "ES")
+		.queryParam("limit", "10")
+		.queryParam("offset", "5")
+		.when()
+		.get("/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks")
+		.then()
+		.body("href", equalToIgnoringCase("https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks?offset=5&limit=10&market=ES"));
+		
+	}
+
 
 	
 	// 2) Verify Query

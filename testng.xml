@@ -1,0 +1,7 @@
+<suite name="Allure Reporting" verbose="1">
+  <test name="Test Endpoints of Spotify App">
+    <classes>
+      <class name="com.api.rough.Rough" />
+    </classes>
+  </test>
+</suite>
