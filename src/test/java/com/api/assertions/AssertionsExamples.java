@@ -1,5 +1,7 @@
 package com.api.assertions;
 
+
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -18,7 +20,7 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 
 public class AssertionsExamples {
-	static final String OAUTH_TOKEN = "BQBTRyy7kUbCA88il7Fe7Ds6U3B7vzqhBavmDlajaPa9UIGHyEtm_uAEDowrz_kqdHj386D3m_3qoEcS6fcE0wqN78ZooZD3VcYicrNlizDg73t8i3x43-LBHq8_BFDEQm9whxC_2C8UTJNnq75oUNLp0SoIOz0TJw";
+	static final String OAUTH_TOKEN = "BQB0zyYaGoWI0zL38lyeemrdGqyM4C1CCBeJZnNfXkKa-JWiTPYJXaJSLKdZ6YhNUMzFvr7wQlwjCG3DilzRyNv3qSKS1R2uvVhB1aaJkXCyC6aD1q7c7uBU8TPCGK8EgrOzlFof041BTz39EVwyAwgPfwQlshFcrg";
 	//generate OAUTH_TOKEN manually
 	//https://developer.spotify.com/console/get-artist-albums/?id=0TnOYISbd1XYRBk9myaseg&include_groups=single%2Cappears_on&market=ES&limit=10&offset=5
 	@BeforeClass

@@ -1,0 +1,1 @@
+{"uuid":"df64de0b-5bd1-47a8-a4d1-b2f1bc272984","name":"com.api.crud.PostTest","children":["4b11321e-3c77-447a-b601-704addab7a36"],"befores":[{"name":"init","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1562750515084,"stop":1562750516548}],"afters":[],"links":[],"start":1562750514913,"stop":1562750521491}

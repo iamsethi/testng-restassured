@@ -1,3 +1,118 @@
+What is API
+JSON traversing 
+Path Param and Query Param
+Response Builder
+OAuth2
+API Testing Strategy 
+
+
+
+###############Chapter 1###############
+.Application Programming Interface 
+.One piece of code talking to another piece of code
+.This could be website talking to DB at backend or Mobile application talking to authentication service
+.APIs are contract that enable communication
+
+API contract 			Response
+Endpoint				Status code
+Headers					Headers 
+Body					Body
+
+
+Fiddler or Charles proxy for mobile api 
+
+###############Chapter 2############### 
+
+Browser -> F12 -> Network -> Copy as cUrl -> Postman -> Import -> Paste Raw Text
+
+OR
+
+https://restful-booker.herokuapp.com/ -> API Docs -> Copy as cUrl
+
+
+###############Chapter 3- POISED API Testing Strategy###############
+
+https://github.com/mwinteringham/restful-booker
+npm install inside the folder 
+npm start
+localhost:3001
+
+import postman envn -> https://github.com/ambertests/explore-with-postman/tree/master/tau/Lesson3
+import postman collection -> https://github.com/ambertests/explore-with-postman/blob/master/postman_json/Restful-Booker.postman_collection.json
+
+API Testing Strategy
+Correct
+Provide Value
+Intuitive 
+
+P- Parameters
+O- Output
+I- Interop
+S- Security
+E- Errors
+D- Data 
+
+
+###############Chapter 3(i) - Parameters###############
+Classic bounday style testing on Body of POST request
+
+{
+    "firstname" : "Jim",
+    "lastname" : "Brown",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-01-01"
+    },
+    "additionalneeds" : "Breakfast"
+}
+
+.Empty String
+.Spaces in String 
+.null instead of String e.g   "additionalneeds" : null 
+.optional and mandatory parameters 
+ 
+###############Chapter 3(ii) - Output###############
+
+Status Code - 200 OK 
+.Whether processing the header correctly or not - Accept application/json and Accept application/xml
+.500 Internal server error if we give incorrect date format - so check in Application logs whether it is saying incorrect 
+
+###############Chapter 3(iii) - Interop###############
+send date in DD-MM-YYYY	=>	17-04-2018
+
+.understand basic requirement
+.we need to communicate how our API are communicating
+
+###############Chapter 3(iii) - Security###############
+
+create booking - 
+"firstname" : "<script>alert(\"gotcha!\")</script>",
+
+https://codebeautify.org/json-to-html-converter
+
+###############Chapter 3(iv) - Errors###############
+.for Auth endpoints we we send incorrect credentials then it should be 401 response but we are getting 
+200 OK although the message says Bad Credentials 
+
+.Poor error handling - 500 internal server error which says don't know what happened at backend
+
+.PUT request with incorrect date format is replacing the entire record and GET request for the same id 
+
+###############Chapter 3(v) - Data###############
+
+.Run Create Booking
+Verify data is stored in DB by Run Get Booking by ID 
+
+.Run your API 1000 times by collection ->Run -> Iteration 1000 -> Create Booking
+Now check your time to get data is still same or not
+
+
+
+
+
+
 http://jsonviewer.stack.hu/
 https://any-api.com/
 https://reqres.in/
