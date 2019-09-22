@@ -140,6 +140,17 @@ http://www.javadoc.io/doc/io.rest-assured/rest-assured/3.0.0
 https://developer.paypal.com/developer/applications/create
 https://apps.twitter.com/
 
+############################Serialization - Payload to POJO using http://pojo.sodhanalibrary.com/ create constructor with all fields explicitly#######################################
+ VideoGame  videoGame = new VideoGame("40","shooter","2014-05-16","Halo 5","Mature","89");
+		 given()
+		 .spec(videoGame_requestSpec)
+		 .body(videoGame)
+		 .when()
+		 .post(Endpoint.VIDEOGAMES)
+		 .then()
+		 .spec(videoGame_resonseSpec);
+		 
+		 
 ###################################################################
 LETSKODEIT - 
 
