@@ -1,0 +1,1 @@
+{"uuid":"3f4f79fe-c782-4a0c-a705-553fe375ef0f","name":"com.api.rough.Rough","children":["97c6e28a-3be1-4886-942e-f6e4661bf6b2"],"befores":[{"name":"setupMain","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1569078246383,"stop":1569078249174}],"afters":[],"links":[],"start":1569078246291,"stop":1569078275724}
