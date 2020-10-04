@@ -23,6 +23,7 @@ import io.restassured.http.ContentType;
 
 public class PostAsObject extends BaseClassoauth2 {
  static String payment_id;
+ protected PostObj postObj;
 	@Test
 	public void createAPayment(){
 	
@@ -103,8 +104,8 @@ public class PostAsObject extends BaseClassoauth2 {
 		//Set payer
 		Payer payer = new Payer();
 		payer.setPayment_method("paypal");
-		
-		PostObj postObj = new PostObj();
+
+		postObj = new PostObj();
 		postObj.setIntent("sale");
 		postObj.setNote_to_payer("Contact us");
 		postObj.setRedirect_urls(red_url);

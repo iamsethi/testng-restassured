@@ -54,7 +54,7 @@ D- Data
 
 
 ###############Chapter 3(i) - Parameters###############
-Classic bounday style testing on Body of POST request
+Classic boundary style testing on Body of POST request
 
 {
     "firstname" : "Jim",
@@ -317,6 +317,17 @@ String actualValue = given()
 JSONAssert.assertEquals(expectedValue, actualValue, JSONCompareMode.STRICT);  //  "file.txt"	
 JSONAssert.assertEquals(expectedValue, actualValue, JSONCompareMode.LENIENT); //  "difforder.txt"
 
+
+#########JSONPath http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json #########									
+https://hub.docker.com/r/cptactionhank/atlassian-jira/
+https://developer.atlassian.com/server/jira/platform/jira-rest-api-examples/
+https://developer.atlassian.com/server/jira/platform/cookie-based-authentication/
+Jira username - iamsethi jaibhole99.
+Create New Project - Project Name - RestAssuredProject
+Key - RAP [we'll be using this key in API]
+
+										
+										
 #########JSONPath http://api.walmartlabs.com/v1/search?query=ipod&apiKey=s7wv3tu7h8snrjz5de29uq8v&format=json #########
 
 given()
@@ -333,6 +344,8 @@ int size=								.then().extract().path("items.size()");
 List<String> names=						.then().extract().path("items.name");
 List<HashMap<String,Object>> x=			.then().extract().path("items.findAll{it.name=='Apple 											iPod touch 32GB'}");
 										.then().extract().path("items.findAll{it.name=='Apple 													iPod touch 32GB'}.salePrice");
+										
+
 		
 
 

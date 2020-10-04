@@ -193,8 +193,6 @@ public class AssertionsExamples {
 			.body("items.size()",lessThan(11))
 			.body("items.size()",greaterThanOrEqualTo(10))
 			.body("items.size()",lessThanOrEqualTo(10));
-				
 		}
-
 	}
 

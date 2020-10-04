@@ -22,7 +22,6 @@ public class TwitterWorkflowTest {
 	public void setup() {
 		reqSpec = RestUtilities.getRequestSpecification();
 		reqSpec.basePath(Path.STATUSES);
-		
 		resSpec = RestUtilities.getResponseSpecification();
 	}
 

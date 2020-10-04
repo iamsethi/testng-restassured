@@ -2,7 +2,7 @@ package com.api.rough;
 
 public class Question39 {
 	public static void main(String[] args) {
-		m1(); // Line 3
+		//m1(); // Line 3
 		
 		
 	}

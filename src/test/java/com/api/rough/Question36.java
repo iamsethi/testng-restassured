@@ -19,6 +19,7 @@ class Dog extends Animal {
     private String breed;
     
     Dog(String breed) {
+        super(breed);
         this.breed = breed;
     }
 

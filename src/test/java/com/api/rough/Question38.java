@@ -18,10 +18,8 @@ public class Question38 {
 	public static void main(String[] args) {
 		Super s = new Sub();
 		try {
-			s.m1();
-		} catch (FileNotFoundException e) {
-			System.out.print("M");
-		} finally {
+			//s.m1();
+		}  finally {
 			System.out.print("N");
 		}
 	}
